@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-1 col-md-1 col-lg-1 mb-4">
+            <button class="btn btn-outline-primary" data-filter="all" 
+            (click)="filterDrink('all')"
+            [ngClass]="{'btn-success active': allDrinks}">All</button>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1 mb-4">
+            <button class="btn btn-outline-primary" data-filter="alcoholic" 
+            (click)="filterDrink('alcoholic')"
+            [ngClass]="{'btn-success active': alcoholicDrinks}">Alcoholic</button>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2 mb-4">
+            <button class="btn btn-outline-primary" data-filter="non-alcoholic" 
+            (click)="filterDrink('nonalcoholic')"
+            [ngClass]="{'btn-success active': nonAlcoholicDrinks}">Non Alcoholic</button>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4"
+        *ngFor="let cocktail of selectedCockTail | filterDrink: drinkType"
+        (click)="drinkClicked(cocktail)">
+            <div class="card text-dark click-col">
+                <img class="card-img" [src]="cocktail.strDrinkThumb" [alt]="cocktail.strImageAttribution">
+                <div class="d-flex flex-column">
+                    <div class="card-body">
+                        <h4 class="card-title mt-0 "><a class="text-dark">{{cocktail.strDrink}}</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

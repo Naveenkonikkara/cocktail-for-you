@@ -1,0 +1,11 @@
+body {
+    /* Created with https://www.css-gradient.com */
+    background: #161616;
+  }
+
+  .banner {
+    background: #EB0C54;
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+  }
